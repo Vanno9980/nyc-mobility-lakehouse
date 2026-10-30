@@ -1,0 +1,15 @@
+resources:
+  jobs:
+    check_environment:
+      name: nyc-mobility-check-environment
+
+      tasks:
+        - task_key: check_environment
+          notebook_task:
+            notebook_path: ../src/notebooks/00_check_environment.py
+      
+        - task_key: setup_storage
+          depends_on:
+            - task_key: check_environment
+          notebook_task:
+            notebook_path: ../src/notebooks/01_setup_storage.py

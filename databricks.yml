@@ -5,6 +5,9 @@
 bundle:
   name: nyc-mobility-lakehouse
 
+include:
+  - resources/*.yml
+
 targets:
   dev:
     mode: development
