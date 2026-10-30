@@ -1,0 +1,30 @@
+resources:
+  jobs:
+    nyc-mobility-pipeline:
+      name: nyc-mobility-pipeline
+      max_concurrent_runs: 1
+
+      parameters:
+        - name: catalog
+          default: databricks_dev
+
+        - name: schema
+          default: vannini_ale
+
+        - name: start_month
+          default: "2025-01"
+
+        - name: max_files
+          default: "1"
+
+      tasks:
+        - task_key: download_yellow
+          notebook_task:
+            notebook_path: ../src/notebooks/02_download_yellow.py
+
+        - task_key: bronze_ingestion
+          depends_on:
+            - task_key: download_yellow
+          max_retries: 0
+          pipeline_task:
+            pipeline_id: ${resources.pipelines.lakehouse_pipeline.id}
