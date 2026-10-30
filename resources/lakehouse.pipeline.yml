@@ -1,0 +1,19 @@
+resources:
+  pipelines:
+    lakehouse_pipeline:
+      name: nyc-mobility-lakehouse
+
+      catalog: databricks_dev
+      schema: vannini_ale
+
+      serverless: true
+
+      libraries:
+        - file:
+            path: ../src/pipelines/bronze_ingestion.py
+
+      configuration:
+        nyc.landing_path: /Volumes/databricks_dev/vannini_ale/landing/yellow
+
+        pipelines.maxFlowRetryAttempts: "0"
+        pipelines.numUpdateRetryAttempts: "0"

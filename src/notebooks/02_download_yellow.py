@@ -13,8 +13,8 @@ import pyarrow.parquet as pq
 
 # COMMAND ----------
 
-dbutils.widgets.text("catalog", "")
-dbutils.widgets.text("schema", "nyc_mobility_av")
+dbutils.widgets.text("catalog", "databricks_dev")
+dbutils.widgets.text("schema", "vannini_ale")
 dbutils.widgets.text("start_month", "2025-01")
 dbutils.widgets.text("max_files", "1")
 
