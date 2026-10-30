@@ -11,6 +11,9 @@ resources:
       libraries:
         - file:
             path: ../src/pipelines/bronze_ingestion.py
+        
+        - file:
+            path: ../src/pipelines/silver_clean.py
 
       configuration:
         nyc.landing_path: /Volumes/databricks_dev/vannini_ale/landing/yellow
