@@ -22,7 +22,7 @@ resources:
           notebook_task:
             notebook_path: ../src/notebooks/02_download_yellow.py
 
-        - task_key: bronze_ingestion
+        - task_key: ingestion_pipeline
           depends_on:
             - task_key: download_yellow
           max_retries: 0
